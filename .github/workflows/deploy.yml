@@ -33,6 +33,9 @@ jobs:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/${{ secrets.CI_IAM_ROLE }}
 
+      - name: ls
+        run: ls
+
       - name: Push to AWS S3
         run: |
           aws s3 cp dist s3://${{ secrets.APP_BUCKET }} --recursive
